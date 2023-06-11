@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top rating</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<div class="relative h-screen lg:h-24 w-full bg-cover bg-no-repeat bg-red-900" >
+
+
+    <header class="text-slate-300 container relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center">
+        <a href="#" class="flex items-center whitespace-nowrap text-3xl font-bold">
+    <span class="mr-2 w-16">
+      <img src="{{ asset('images/logo.png') }}" alt="" />
+    </span>
+            eTicket
+        </a>
+        <input type="checkbox" class="peer hidden" id="navbar-open" />
+        <label class="absolute top-5 right-5 cursor-pointer lg:hidden" for="navbar-open">
+            <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </label>
+        <nav aria-label="Header Navigation" class="peer-checked:pt-8 peer-checked:max-h-60 flex max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-24 lg:max-h-full lg:flex-row">
+            <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-center lg:space-y-0">
+                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="/popular">Popular</a></li>
+                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Top Rated</a></li>
+                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Upcoming</a></li>
+            </ul>
+            <hr class="mt-4 w-full lg:hidden" />
+            <div class="my-4 flex items-center space-x-6 space-y-2 lg:my-0 lg:ml-auto lg:space-x-8 lg:space-y-0">
+                <a href="#" title="" class="whitespace-nowrap rounded font-medium transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2 hover:text-opacity-50"> Log in </a>
+                <a href="#" title="" class="whitespace-nowrap rounded-xl bg-blue-700 px-5 py-3 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:bg-blue-600">Get free account</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="pt-20 pb-5">
+
+        <div class="flex w-96 flex-col space-y-5 rounded-lg border py-10 px-5 shadow-xl mx-auto">
+            <div class="mx-auto mb-2 space-y-3">
+                <h1 class=" text-3xl font-bold text-gray-700">Log in</h1>
+                <p class="text-gray-500">Login to access your account</p>
+            </div>
+
+            <div>
+                <div class="relative mt-2 w-full">
+                    <input type="text" id="email" value="email@gmail.com" class="border-1 peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label for="email" class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"> Enter Your Email </label>
+                </div>
+            </div>
+
+            <div>
+                <div class="relative mt-2 w-full">
+                    <input type="text" id="password" class="border-1 peer block w-full appearance-none rounded-lg border border-gray-300 bg-transparent px-2.5 pb-2.5 pt-4 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0" placeholder=" " />
+                    <label for="password" class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-75 transform cursor-text select-none bg-white px-2 text-sm text-gray-500 duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-2 peer-focus:text-blue-600"> Enter Your Password</label>
+                </div>
+            </div>
+
+            <button class="rounded-lg bg-blue-600 py-3 font-bold text-white">Login</button>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+
+    <footer class="relative mt-20 bg-gray-900 px-4 pt-14">
+        <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-white p-2"><img class="h-full object-contain" src="{{ asset('images/logo.png') }}" alt="" /></div>
+        <nav aria-label="Footer Navigation" class="mx-auto mb-1 flex max-w-lg flex-col gap-x-20 gap-y-2 text-center sm:flex-row sm:text-center">
+            <a href="/" class="font-medium text-white">Home</a>
+            <a href="/popular" class="font-medium text-white">Popular</a>
+            <a href="#" class="font-medium text-white">Top Rated</a>
+            <a href="#" class="font-medium text-white">Upcoming</a>
+        </nav>
+        <p class="py-5 text-center text-gray-300">© 2022 Marius Sandulache | All Rights Reserved</p>
+    </footer>
+
+
+</body>
+</html>

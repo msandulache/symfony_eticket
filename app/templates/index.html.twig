@@ -29,14 +29,14 @@
             </label>
             <nav aria-label="Header Navigation" class="peer-checked:pt-8 peer-checked:max-h-60 flex max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-24 lg:max-h-full lg:flex-row">
                 <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-center lg:space-y-0">
-                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Popular</a></li>
-                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Top Rated</a></li>
-                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Upcoming</a></li>
+                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="/popular">Popular</a></li>
+                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="/top-rated">Top Rated</a></li>
+                    <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="/upcoming">Upcoming</a></li>
                 </ul>
                 <hr class="mt-4 w-full lg:hidden" />
                 <div class="my-4 flex items-center space-x-6 space-y-2 lg:my-0 lg:ml-auto lg:space-x-8 lg:space-y-0">
-                    <a href="#" title="" class="whitespace-nowrap rounded font-medium transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2 hover:text-opacity-50"> Log in </a>
-                    <a href="#" title="" class="whitespace-nowrap rounded-xl bg-blue-700 px-5 py-3 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:bg-blue-600">Get free account</a>
+                    <a href="/login" title="" class="whitespace-nowrap rounded font-medium transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2 hover:text-opacity-50"> Log in </a>
+                    <a href="/register" title="" class="whitespace-nowrap rounded-xl bg-blue-700 px-5 py-3 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:bg-blue-600">Get free account</a>
                 </div>
             </nav>
         </header>
@@ -164,8 +164,8 @@
             <footer class="relative mt-20 bg-gray-900 px-4 pt-14">
                 <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-white p-2"><img class="h-full object-contain" src="{{ asset('images/logo.png') }}" alt="" /></div>
                 <nav aria-label="Footer Navigation" class="mx-auto mb-1 flex max-w-lg flex-col gap-x-20 gap-y-2 text-center sm:flex-row sm:text-center">
-                    <a href="#" class="font-medium text-white">Home</a>
-                    <a href="#" class="font-medium text-white">Popular</a>
+                    <a href="/" class="font-medium text-white">Home</a>
+                    <a href="/popular" class="font-medium text-white">Popular</a>
                     <a href="#" class="font-medium text-white">Top Rated</a>
                     <a href="#" class="font-medium text-white">Upcoming</a>
                 </nav>
