@@ -1,101 +1,59 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top rating</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+{% extends 'base.html.twig' %}
 
-<div class="relative h-screen lg:h-24 w-full bg-cover bg-no-repeat bg-red-900" >
+{% block title %}
+    eTicket - Login
+{% endblock %}
 
+{% block body %}
+    <div class="relative h-screen lg:h-24 w-full bg-cover bg-no-repeat bg-red-900" >
 
-    <header class="text-slate-300 container relative mx-auto flex flex-col overflow-hidden px-4 py-4 lg:flex-row lg:items-center">
-        <a href="#" class="flex items-center whitespace-nowrap text-3xl font-bold">
-    <span class="mr-2 w-16">
-      <img src="{{ asset('images/logo.png') }}" alt="" />
-    </span>
-            eTicket
-        </a>
-        <input type="checkbox" class="peer hidden" id="navbar-open" />
-        <label class="absolute top-5 right-5 cursor-pointer lg:hidden" for="navbar-open">
-            <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </label>
-        <nav aria-label="Header Navigation" class="peer-checked:pt-8 peer-checked:max-h-60 flex max-h-0 w-full flex-col items-center overflow-hidden transition-all lg:ml-24 lg:max-h-full lg:flex-row">
-            <ul class="flex w-full flex-col items-center space-y-2 lg:flex-row lg:justify-center lg:space-y-0">
-                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="/popular">Popular</a></li>
-                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Top Rated</a></li>
-                <li class="lg:mr-12"><a class="rounded text-gray-300 transition focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2" href="#">Upcoming</a></li>
-            </ul>
-            <hr class="mt-4 w-full lg:hidden" />
-            <div class="my-4 flex items-center space-x-6 space-y-2 lg:my-0 lg:ml-auto lg:space-x-8 lg:space-y-0">
-                <a href="#" title="" class="whitespace-nowrap rounded font-medium transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:ring-offset-2 hover:text-opacity-50"> Log in </a>
-                <a href="#" title="" class="whitespace-nowrap rounded-xl bg-blue-700 px-5 py-3 font-medium text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 hover:bg-blue-600">Get free account</a>
+        {{ include('common/_header.html.twig') }}
+
+        <div class="pt-5 pb-1">
+
+            <div class="lg:m-10">
+                <form class="relative border border-gray-100 space-y-3 max-w-screen-md mx-auto rounded-md bg-white p-6 shadow-xl lg:p-10">
+                    <h1 class="mb-6 text-xl font-semibold lg:text-2xl">Register</h1>
+
+                    <div class="grid gap-3 md:grid-cols-2">
+                        <div>
+                            <label class=""> First Name </label>
+                            <input type="text" placeholder="Your Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+                        </div>
+                        <div>
+                            <label class=""> Last Name </label>
+                            <input type="text" placeholder="Last  Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class=""> Username </label>
+                        <input type="text" placeholder="Username" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+                    </div>
+                    <div>
+                        <label class=""> Email Address </label>
+                        <input type="email" placeholder="Info@example.com" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+                    </div>
+                    <div>
+                        <label class=""> Password </label>
+                        <input type="password" placeholder="******" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
+                    </div>
+
+                    <div class="checkbox">
+                        <input type="checkbox" id="chekcbox1" checked="" />
+                        <label for="checkbox1">I agree to the <a href="#" target="_blank" class="text-blue-600"> Terms and Conditions </a> </label>
+                    </div>
+
+                    <div>
+                        <button type="button" class="mt-5 w-full rounded-md bg-blue-600 p-2 text-center font-semibold text-white">Get Started</button>
+                    </div>
+                </form>
+
             </div>
-        </nav>
-    </header>
 
-    <div class="pt-5 pb-1">
-
-        <div class="lg:m-10">
-            <form class="relative border border-gray-100 space-y-3 max-w-screen-md mx-auto rounded-md bg-white p-6 shadow-xl lg:p-10">
-                <h1 class="mb-6 text-xl font-semibold lg:text-2xl">Register</h1>
-
-                <div class="grid gap-3 md:grid-cols-2">
-                    <div>
-                        <label class=""> First Name </label>
-                        <input type="text" placeholder="Your Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-                    </div>
-                    <div>
-                        <label class=""> Last Name </label>
-                        <input type="text" placeholder="Last  Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-                    </div>
-                </div>
-                <div>
-                    <label class=""> Username </label>
-                    <input type="text" placeholder="Username" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-                </div>
-                <div>
-                    <label class=""> Email Address </label>
-                    <input type="email" placeholder="Info@example.com" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-                </div>
-                <div>
-                    <label class=""> Password </label>
-                    <input type="password" placeholder="******" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-                </div>
-
-                <div class="checkbox">
-                    <input type="checkbox" id="chekcbox1" checked="" />
-                    <label for="checkbox1">I agree to the <a href="#" target="_blank" class="text-blue-600"> Terms and Conditions </a> </label>
-                </div>
-
-                <div>
-                    <button type="button" class="mt-5 w-full rounded-md bg-blue-600 p-2 text-center font-semibold text-white">Get Started</button>
-                </div>
-            </form>
 
         </div>
 
+        {{ include('common/_footer.html.twig') }}
 
     </div>
-
-
-    <!-- footer -->
-
-    <footer class="relative mt-20 bg-gray-900 px-4 pt-14">
-        <div class="absolute -top-10 left-1/2 h-16 w-16 -translate-x-1/2 rounded-xl border-4 border-sky-500 bg-white p-2"><img class="h-full object-contain" src="{{ asset('images/logo.png') }}" alt="" /></div>
-        <nav aria-label="Footer Navigation" class="mx-auto mb-1 flex max-w-lg flex-col gap-x-20 gap-y-2 text-center sm:flex-row sm:text-center">
-            <a href="/" class="font-medium text-white">Home</a>
-            <a href="/popular" class="font-medium text-white">Popular</a>
-            <a href="#" class="font-medium text-white">Top Rated</a>
-            <a href="#" class="font-medium text-white">Upcoming</a>
-        </nav>
-        <p class="py-5 text-center text-gray-300">© 2022 Marius Sandulache | All Rights Reserved</p>
-    </footer>
-
-
-</body>
-</html>
+{% endblock %}
