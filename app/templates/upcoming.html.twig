@@ -14,8 +14,8 @@
             <h1 class="mb-12 mt-16 text-center font-sans text-5xl font-bold">Upcoming movies</h1>
             <div class="mx-auto grid max-w-screen-lg justify-center px-4 sm:grid-cols-2 sm:gap-4 sm:px-8 md:grid-cols-3">
 
-                {% for i in 0..10 %}
-                    {{ include('common/_movie_card.html.twig') }}
+                {% for movie in movies %}
+                    {% include 'common/_movie_card.html.twig' with movie %}
                 {% endfor %}
 
             </div>

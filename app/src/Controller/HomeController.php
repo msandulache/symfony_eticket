@@ -5,31 +5,20 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\MovieRepositoryInterface;
 
 class HomeController extends AbstractController
 {
+    public function __construct(protected MovieRepositoryInterface $movieDbAdapter)
+    {
+    }
+
     #[Route('/', 'app_index')]
-    public function index(): Response
+    public function index()
     {
-        return $this->render('index.html.twig');
-    }
-
-    #[Route('/popular', 'app_popular')]
-    public function popular(): Response
-    {
-        return $this->render('popular.html.twig');
-    }
-
-    #[Route('/top-rated', 'app_top_rated')]
-    public function topRated(): Response
-    {
-        return $this->render('top-rated.html.twig');
-    }
-
-    #[Route('/upcoming', 'app_upcoming')]
-    public function upcoming(): Response
-    {
-        return $this->render('upcoming.html.twig');
+        return $this->render('index.html.twig', [
+            'movies' => $this->movieDbAdapter->getNowPlayingMovies()
+        ]);
     }
 
     #[Route('/login', 'app_login')]
