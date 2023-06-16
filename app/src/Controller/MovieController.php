@@ -20,31 +20,30 @@ class MovieController extends AbstractController
         ]);
     }
 
-    #[Route('/top-rated', 'app_top_rated')]
-    public function topRated(): Response
+    #[Route('/romanian-movies', 'app_romanian_movies')]
+    public function romanianMovies(): Response
     {
-        return $this->render('top-rated.html.twig', [
-            'movies' => $this->movieDbAdapter->getTopRatedMovies()
+        return $this->render('romaninan-movies.html.twig', [
+            'movies' => $this->movieDbAdapter->getRomanianMovies()
         ]);
     }
 
-    #[Route('/upcoming', 'app_upcoming')]
-    public function upcoming(): Response
+    #[Route('/french-movies', 'app_french_movies')]
+    public function frenchMovies(): Response
     {
-        return $this->render('upcoming.html.twig', [
-            'movies' => $this->movieDbAdapter->getUpcomingMovies()
+        return $this->render('french-movies.html.twig', [
+            'movies' => $this->movieDbAdapter->getFrenchMovies()
         ]);
     }
 
-    public function details(int $movieId): array
+    #[Route('/movie/{id}', 'app_movie')]
+    public function movie($id): Response
     {
-        $movie = $this->movieDbAdapter->getMovieDetails($movieId);
-
-        return [
-            'id' => isset($movie['id']) ? 'movie-' . $movie['id'] : '',
-            'title' => $movie['title'] ?? '',
-            'subtitle' => $movie['tagline'] ?? '',
-            'movie' => $movie
-        ];
+        return $this->render('movie.html.twig',
+        [
+            'movie' => $this->movieDbAdapter->getMovieDetails($id),
+            'recommendations' => $this->movieDbAdapter->getRecommendations($id)
+        ]);
     }
+
 }

@@ -33,12 +33,6 @@ class HomeController extends AbstractController
         return $this->render('register.html.twig');
     }
 
-    #[Route('/movie', 'app_movie')]
-    public function movie(): Response
-    {
-        return $this->render('movie.html.twig');
-    }
-
     #[Route('/contact', 'app_contact')]
     public function contact(): Response
     {

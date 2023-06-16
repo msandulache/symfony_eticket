@@ -9,4 +9,7 @@ interface MovieRepositoryInterface
     public function getTopRatedMovies(): array;
     public function getUpcomingMovies(): array;
     public function getMovieDetails(int $movieId): array;
+    public function getRecommendations(int $movieId): array;
+    public function getRomanianMovies(): array;
+    public function getFrenchMovies(): array;
 }

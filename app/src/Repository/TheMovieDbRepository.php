@@ -48,6 +48,57 @@ class TheMovieDbRepository implements MovieRepositoryInterface
         return $this->getMovies('upcoming');
     }
 
+    public function getRecommendations($movieId): array
+    {
+        return $this->getMovies($movieId . '/recommendations');
+    }
+
+    public function getRomanianMovies(): array
+    {
+        $movies = [];
+        $response = $this->get('/discover/movie?include_adult=false&include_video=false&page=1&sort_by=popularity.desc&with_original_language=ro');
+
+        if(isset($response['results'])) {
+            foreach($response['results'] as $result) {
+                if(isset($result['title']) && $result['poster_path'] && $result['overview']) {
+                    $movies[] = [
+                        'id' => $result['id'],
+                        'title' => $result['title'],
+                        'poster_path' => $this->images_base_url . $this->images_backdrop_size . $result['poster_path'],
+                        'overview' => $result['overview'],
+                        'release_year' => date('Y', strtotime($result['release_date'])),
+                        'vote_average' => $result['vote_average']
+                    ];
+                }
+            }
+        }
+
+        return $movies;
+    }
+
+    public function getFrenchMovies(): array
+    {
+        $movies = [];
+        $response = $this->get('/discover/movie?include_adult=false&include_video=false&page=1&sort_by=popularity.desc&with_original_language=fr');
+
+        if(isset($response['results'])) {
+            foreach($response['results'] as $result) {
+                if(isset($result['title']) && $result['poster_path'] && $result['overview']) {
+                    $movies[] = [
+                        'id' => $result['id'],
+                        'title' => $result['title'],
+                        'poster_path' => $this->images_base_url . $this->images_backdrop_size . $result['poster_path'],
+                        'overview' => $result['overview'],
+                        'release_year' => date('Y', strtotime($result['release_date'])),
+                        'vote_average' => $result['vote_average']
+                    ];
+                }
+            }
+        }
+
+        return $movies;
+    }
+
     public function getMovieDetails(int $movieId): array
     {
         $response =  $this->get('/movie/' . $movieId);
@@ -68,6 +119,7 @@ class TheMovieDbRepository implements MovieRepositoryInterface
     {
         $movies = [];
         $response = $this->get('/movie/' . $queryString);
+
         if(isset($response['results'])) {
             foreach($response['results'] as $result) {
                 if(isset($result['title']) && $result['poster_path'] && $result['overview']) {
@@ -75,7 +127,9 @@ class TheMovieDbRepository implements MovieRepositoryInterface
                         'id' => $result['id'],
                         'title' => $result['title'],
                         'poster_path' => $this->images_base_url . $this->images_backdrop_size . $result['poster_path'],
-                        'overview' => $result['overview']
+                        'overview' => $result['overview'],
+                        'release_year' => date('Y', strtotime($result['release_date'])),
+                        'vote_average' => $result['vote_average']
                     ];
                 }
             }
@@ -87,7 +141,12 @@ class TheMovieDbRepository implements MovieRepositoryInterface
     private function get($queryString)
     {
         $client = new Client();
-        $response = $client->get(self::URL . $queryString . '?api_key=' . self::API_KEY);
+        if(str_contains($queryString, '?')) {
+            $response = $client->get(self::URL . $queryString . '&api_key=' . self::API_KEY);
+        } else {
+            $response = $client->get(self::URL . $queryString . '?api_key=' . self::API_KEY);
+        }
+
         if($this->isValid($response)) {
             $body = $response->getBody()->getContents();
             $body = json_decode($body, true);
